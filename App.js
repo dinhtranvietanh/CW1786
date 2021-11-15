@@ -1,21 +1,64 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
+import Index from './Add/index'
+import CreateHome from './Add/create'
+import DetailRentalz from './Add/detailrentalz'
+import Showrentalz from './Add/showrentalz'
+import UpdateRentailz from './Add/updaterentalz'
+import Searchrentailz from './Add/searchrentailz'
+import Searchdetail from './Add/searchdetail'
+
+
+const CT = createStackNavigator();
+
+function CtNavigator() {
+  return (
+    <CT.Navigator>
+      <CT.Screen
+      name="Index" 
+      component={Index} 
+      />
+      <CT.Screen 
+      options={{
+      title: "Create infor",
+      }}
+      name="Create" 
+      component={CreateHome} 
+      />
+       <CT.Screen  
+      options={{
+      title: "Detail",
+      }}
+      name="DetailRentalz" 
+      component={DetailRentalz} 
+      />
+      <CT.Screen
+      name="Showrentalz" 
+      component={Showrentalz}
+      />
+       <CT.Screen
+      name="Update" 
+      component={UpdateRentailz}
+      />
+      <CT.Screen
+      name="Searchrentailz" 
+      component={Searchrentailz}
+      />
+       <CT.Screen
+      name="SearchDetail" 
+      component={Searchdetail}
+      />
+    </CT.Navigator>
+  
+  );
+  
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <CtNavigator/>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
